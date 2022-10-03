@@ -88,7 +88,7 @@
       // TODO: register event onkeypress / addEventListener untuk input
       // sehingga saat di input ditekan enter akan menjalankan fungsi fnClickHandler juga
       input.addEventListener('keydown', function(toDoItem){
-        if (toDoItem.keyCode==13){
+        if (toDoItem.key=="Enter"|| toDoItem.keyCode==13 ){
         fnClickHandler(toDoItem);}
       })
     </script>
