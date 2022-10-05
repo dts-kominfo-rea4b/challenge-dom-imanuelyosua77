@@ -62,7 +62,7 @@
     <!-- TODO: Buatlah sebuah input bertipe text dengan id todo-input -->
     <input placeholder="Tambah Kegiatan" type="text" id="todo-input" />
     <!-- TODO: Buatlah sebuah button dengan id todo-submit -->
-    <button id="todo-submit">Submit</button>
+    <button onclick="fnClickHandler(input.value)" id="todo-submit">Submit</button>
     <!-- Section output -->
     <!-- TODO: Buatlah sebuah <ul> dengan id todo-output -->
     <ul id="todo-output"></ul>
@@ -75,36 +75,33 @@
     let input = document.getElementById("todo-input");
     let output = document.getElementById("todo-output");
 
+    
     // TODO: Buatlah sebuah fungsi dengan nama fnClickHandler
     // Fungsi yang digunakan untuk menambahkan tulisan
     // Jangan ubah cara deklarasi fungsinya, cukup isi saja
+
     function fnClickHandler(toDoItem) {
       let dataInput = document.createElement("li");
-      let dataResult = document.createTextNode(input.value);
+      let dataResult = document.createTextNode(toDoItem);
       dataInput.appendChild(dataResult);
       dataInput.style.listStyle = "none";
       output.appendChild(dataInput);
       input.value = "";
-      console.log(dataResult);
     }
 
     // TODO: register event onclick / addEventListener untuk button
     // akan menjalankan fungsi fnClickHandler
-    button.addEventListener('click', fnClickHandler)
+    // (EVENT yang tombol ini SAYA Taruh Di Element BUTTON HTML ya KAK)
 
     // TODO: register event onkeypress / addEventListener untuk input
     // sehingga saat di input ditekan enter akan menjalankan fungsi fnClickHandler juga
-    input.addEventListener('keydown', function (toDoItem) {
-      if (toDoItem.key == "Enter" || toDoItem.keyCode == 13) {
-        let dataInput = document.createElement("li");
-        let dataResult = document.createTextNode(input.value);
-        dataInput.appendChild(dataResult);
-        dataInput.style.listStyle = "none";
-        output.appendChild(dataInput);
-        input.value = "";
-        console.log(dataResult);
+
+    input.addEventListener('keydown', function (tombolIni) {
+      if (tombolIni.key == "Enter" || tombolIni.keyCode == 13) {
+        fnClickHandler(input.value);
       }
     })
+
   </script>
 </body>
 
