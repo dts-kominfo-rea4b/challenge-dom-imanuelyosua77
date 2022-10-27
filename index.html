@@ -65,13 +65,14 @@
     <button onclick="fnClickHandler(input.value)" id="todo-submit">Submit</button>
     <!-- Section output -->
     <!-- TODO: Buatlah sebuah <ul> dengan id todo-output -->
-    <ul id="todo-output"></ul>
+    <ul id="todo-output">
+    </ul>
   </div>
 
   <!-- ! Untuk tantangan ini, script jangan diubah ke external js yah ! -->
   <script>
     // TODO: Deklarasi variable sesuai dengan kebutuhan di sini
-    let button = document.getElementById("todo-submit");
+    let btnAdddata = document.getElementById("todo-submit");
     let input = document.getElementById("todo-input");
     let output = document.getElementById("todo-output");
 
@@ -96,7 +97,7 @@
     // TODO: register event onkeypress / addEventListener untuk input
     // sehingga saat di input ditekan enter akan menjalankan fungsi fnClickHandler juga
 
-    input.addEventListener('keydown', function (tombolIni) {
+    input.addEventListener('keypress', function (tombolIni) {
       if (tombolIni.key == "Enter" || tombolIni.keyCode == 13) {
         fnClickHandler(input.value);
       }
